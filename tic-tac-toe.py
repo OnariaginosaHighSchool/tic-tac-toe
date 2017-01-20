@@ -6,6 +6,7 @@ import tkMessageBox
 from PIL import Image, ImageTk
 
 
+
 def switch1(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -80,6 +81,79 @@ def switch9(event):
     label9.image = photo # keep a reference!
     label9.grid(row=70, column =2 )
 
+def switch11(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label1 = Label(image=photo)
+    label1.image = photo # keep a reference!
+    label1.grid(row=7, column =0 )
+    
+def switch22(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label2 = Label(image=photo)
+    label2.image = photo # keep a reference!
+    label2.grid(row=30, column =0 )
+def switch33(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label3 = Label(image=photo)
+    label3.image = photo # keep a reference!
+    label3.grid(row=70, column =0 )
+def switch44(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label4 = Label(image=photo)
+    label4.image = photo # keep a reference!
+    label4.grid(row=7, column =1 )
+def switch55(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label5 = Label(image=photo)
+    label5.image = photo # keep a reference!
+    label5.grid(row=30, column =1 )
+def switch66(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label6 = Label(image=photo)
+    label6.image = photo # keep a reference!
+    label6.grid(row=70, column =1 )
+def switch77(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label7 = Label(image=photo)
+    label7.image = photo # keep a reference!
+    label7.grid(row=7, column =2 )
+def switch88(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label8 = Label(image=photo)
+    label8.image = photo # keep a reference!
+    label8.grid(row=30, column =2 )
+def switch99(event):
+    X = Image.open("O.png")
+    X = X.resize((100,100))
+    photo = ImageTk.PhotoImage(X)
+
+    label9 = Label(image=photo)
+    label9.image = photo # keep a reference!
+    label9.grid(row=70, column =2 )
 
 def buttonpress():
     entrytxt = entry1.get()
@@ -125,56 +199,64 @@ label1 = Label(image=photo)
 label1.image = photo # keep a reference!
 label1.grid(row=7, column =0 )
 label1.bind("<Button-3>", switch1)
+label1.bind("<Button-1>", switch11)
 
 label2 = Label(image=photo)
 label2.image = photo # keep a reference!
 label2.grid(row=30, column =0 )
 label2.bind("<Button-3>", switch2)
+label2.bind("<Button-1>", switch22)
 
 label3 = Label(image=photo)
 label3.image = photo # keep a reference!
 label3.grid(row=70, column =0 )
 label3.bind("<Button-3>", switch3)
+label3.bind("<Button-1>", switch33)
 
 label4 = Label(image=photo)
 label4.image = photo # keep a reference!
 label4.grid(row=7, column =1 )
 label4.bind("<Button-3>", switch4 )
+label4.bind("<Button-1>", switch44)
 
 label5 = Label(image=photo)
 label5.image = photo # keep a reference!
 label5.grid(row=30, column =1 )
 label5.bind("<Button-3>", switch5)
+label5.bind("<Button-1>", switch55)
 
 label6 = Label(image=photo)
 label6.image = photo # keep a reference!
 label6.grid(row=70, column =1 )
 label6.bind("<Button-3>", switch6 )
+label6.bind("<Button-1>", switch66)
 
 label7 = Label(image=photo)
 label7.image = photo # keep a reference!
 label7.grid(row=7, column =2 )
 label7.bind("<Button-3>", switch7)
+label7.bind("<Button-1>", switch77)
 
 label8 = Label(image=photo)
 label8.image = photo # keep a reference!
 label8.grid(row=30, column =2 )
 label8.bind("<Button-3>", switch8 )
+label8.bind("<Button-1>", switch88)
 
 label9 = Label(image=photo)
 label9.image = photo # keep a reference!
 label9.grid(row=70, column =2 )
 label9.bind("<Button-3>", switch9)
+label9.bind("<Button-1>", switch99)
 
-def callback(event):
-    print "clicked at", event.x, event.y
+
 
 menubar = Menu(root)
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="Open", command=openfileR)
 filemenu.add_command(label="Save", command=openfileW)
 filemenu.add_separator()
-filemenu.add_command(label="Exit", command=root.quit)
+filemenu.add_command(label="Exit", command=root.destroy)
 menubar.add_cascade(label="File", menu=filemenu)
 
 root.config(menu=menubar)
