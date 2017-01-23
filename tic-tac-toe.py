@@ -1,12 +1,67 @@
-#use rowspan for making boxes be that big. 
+
+#rowspan for making boxes be that big. 
 
 
 from Tkinter import * #gives us access to everything in the Tkinter class
 import tkMessageBox 
 from PIL import Image, ImageTk
 
+#check
+x = [10, 2, 3]
+y = [4, 5, 6]
+z = [7, 8, 9]
+
+All = [x,y,z]
+
+player1 = 0
+
+player2 = 1
 
 
+
+def winner():
+    print "winner"
+
+def nextplayer():
+    print" "
+
+#vertical check
+def vcheck():
+    if All[0][0] == All[0][1] == All[0][2]:
+        winner()
+    if All[1][0] == All[1][1] == All[1][2]:
+        winner()
+    if All[2][0] == All[2][1] == All[2][2]:
+        winner()
+    else:
+        nextplayer()
+        
+#horizontal check
+def hcheck():
+    if All[0][0] == All[1][0] == All[2][0]:
+        winner()
+    if All[0][1] == All[1][1] == All[2][1]:
+        winner()
+    if All[0][2] == All[1][2] == All[2][2]:
+        winner()
+    else:
+        nextplayer()
+        
+#diagonal check
+def dcheck():
+    if All[0][0] == All[1][1] == All[2][2]:
+        winner()
+    if All[2][0] == All[1][1] == All[0][2]:
+        winner()
+    else:
+        nextplayer()
+
+
+def check():
+    hcheck()
+    vcheck()
+    dcheck()
+    
 def switch1(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -15,6 +70,8 @@ def switch1(event):
     label1 = Label(image=photo)
     label1.image = photo # keep a reference!
     label1.grid(row=7, column =0 )
+    All[0][0] = player2
+    check()
     
 def switch2(event):
     X = Image.open("X.png")
@@ -24,6 +81,9 @@ def switch2(event):
     label2 = Label(image=photo)
     label2.image = photo # keep a reference!
     label2.grid(row=30, column =0 )
+    All[0][1] = player2
+    check()
+    
 def switch3(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -32,6 +92,9 @@ def switch3(event):
     label3 = Label(image=photo)
     label3.image = photo # keep a reference!
     label3.grid(row=70, column =0 )
+    All[0][2] = player2
+    check()
+    
 def switch4(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -40,6 +103,9 @@ def switch4(event):
     label4 = Label(image=photo)
     label4.image = photo # keep a reference!
     label4.grid(row=7, column =1 )
+    All[1][0] = player2
+    check()
+    
 def switch5(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -48,6 +114,9 @@ def switch5(event):
     label5 = Label(image=photo)
     label5.image = photo # keep a reference!
     label5.grid(row=30, column =1 )
+    All[1][1] = player2
+    check()
+    
 def switch6(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -56,6 +125,9 @@ def switch6(event):
     label6 = Label(image=photo)
     label6.image = photo # keep a reference!
     label6.grid(row=70, column =1 )
+    All[1][2] = player2
+    check()
+    
 def switch7(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -64,6 +136,9 @@ def switch7(event):
     label7 = Label(image=photo)
     label7.image = photo # keep a reference!
     label7.grid(row=7, column =2 )
+    All[2][2] = player2
+    check()
+    
 def switch8(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -72,6 +147,9 @@ def switch8(event):
     label8 = Label(image=photo)
     label8.image = photo # keep a reference!
     label8.grid(row=30, column =2 )
+    All[2][1] = player2
+    check()
+    
 def switch9(event):
     X = Image.open("X.png")
     X = X.resize((100,100))
@@ -80,6 +158,8 @@ def switch9(event):
     label9 = Label(image=photo)
     label9.image = photo # keep a reference!
     label9.grid(row=70, column =2 )
+    All[2][2] = player2
+    check()
 
 def switch11(event):
     X = Image.open("O.png")
@@ -89,6 +169,8 @@ def switch11(event):
     label1 = Label(image=photo)
     label1.image = photo # keep a reference!
     label1.grid(row=7, column =0 )
+    All[0][0] = player1
+    check()
     
 def switch22(event):
     X = Image.open("O.png")
@@ -98,6 +180,9 @@ def switch22(event):
     label2 = Label(image=photo)
     label2.image = photo # keep a reference!
     label2.grid(row=30, column =0 )
+    All[0][1] = player1
+    check()
+    
 def switch33(event):
     X = Image.open("O.png")
     X = X.resize((100,100))
@@ -106,6 +191,9 @@ def switch33(event):
     label3 = Label(image=photo)
     label3.image = photo # keep a reference!
     label3.grid(row=70, column =0 )
+    All[0][2] = player1
+    check()
+    
 def switch44(event):
     X = Image.open("O.png")
     X = X.resize((100,100))
@@ -114,6 +202,9 @@ def switch44(event):
     label4 = Label(image=photo)
     label4.image = photo # keep a reference!
     label4.grid(row=7, column =1 )
+    All[1][0] = player1
+    check()
+    
 def switch55(event):
     X = Image.open("O.png")
     X = X.resize((100,100))
@@ -122,6 +213,9 @@ def switch55(event):
     label5 = Label(image=photo)
     label5.image = photo # keep a reference!
     label5.grid(row=30, column =1 )
+    All[1][1] = player1
+    check()
+    
 def switch66(event):
     X = Image.open("O.png")
     X = X.resize((100,100))
@@ -130,6 +224,9 @@ def switch66(event):
     label6 = Label(image=photo)
     label6.image = photo # keep a reference!
     label6.grid(row=70, column =1 )
+    All[1][2] = player1
+    check()
+    
 def switch77(event):
     X = Image.open("O.png")
     X = X.resize((100,100))
@@ -138,6 +235,9 @@ def switch77(event):
     label7 = Label(image=photo)
     label7.image = photo # keep a reference!
     label7.grid(row=7, column =2 )
+    All[2][0] = player1
+    check()
+    
 def switch88(event):
     X = Image.open("O.png")
     X = X.resize((100,100))
@@ -146,6 +246,9 @@ def switch88(event):
     label8 = Label(image=photo)
     label8.image = photo # keep a reference!
     label8.grid(row=30, column =2 )
+    All[2][1] = player1
+    check()
+    
 def switch99(event):
     X = Image.open("O.png")
     X = X.resize((100,100))
@@ -154,6 +257,8 @@ def switch99(event):
     label9 = Label(image=photo)
     label9.image = photo # keep a reference!
     label9.grid(row=70, column =2 )
+    All[2][2] = player1
+    check()
 
 def buttonpress():
     entrytxt = entry1.get()
@@ -174,11 +279,10 @@ def openfileW():
     for i in names:    
         f.write(i + "\n") 
     
+      
 
 root = Tk() #gives us a blank canvas object to work with
 root.title = ("GUI Program")
-
-
 
 
 label1 = Label(root, text ="Player 1 Go First", bg="pink", anchor=W)
