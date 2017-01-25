@@ -20,7 +20,7 @@ player2 = 1
 
 
 def winner():
-    print "winner"
+    label0.config(text="winner")
 
 def nextplayer():
     print" "
@@ -136,7 +136,7 @@ def switch7(event):
     label7 = Label(image=photo)
     label7.image = photo # keep a reference!
     label7.grid(row=7, column =2 )
-    All[2][2] = player2
+    All[2][0] = player2
     check()
     
 def switch8(event):
@@ -285,8 +285,8 @@ root = Tk() #gives us a blank canvas object to work with
 root.title = ("GUI Program")
 
 
-label1 = Label(root, text ="Player 1 Go First", bg="pink", anchor=W)
-label1.grid(row=0, column=0, sticky=EW, columnspan=2)
+label0 = Label(root, text ="Player 1 Go First", bg="pink", anchor=W)
+label0.grid(row=0, column=0, sticky=EW, columnspan=2)
 
 
 
