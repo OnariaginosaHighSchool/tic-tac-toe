@@ -266,7 +266,6 @@ def buttonpress():
     tkMessageBox.showinfo("You typed: ", entrytxt)
     
 def openfileR():
-    clearlist2()
     f = open("Readme.txt", "r")
     for line in f:
 
@@ -277,7 +276,7 @@ def openfileR():
 def openfileW():
     f = open("Readme.txt", 'w')
     for i in names:    
-        f.write(i + "\n") 
+        f.write(All[]) 
     
       
 
