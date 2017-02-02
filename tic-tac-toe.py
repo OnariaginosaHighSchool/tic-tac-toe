@@ -645,7 +645,7 @@ def Directions():
 def reset():
     label0 = Label(root, text ="Left Click Go First", bg="pink", anchor=W)
     label0.grid(row=0, column=0, sticky=EW, columnspan=3)
-    
+
     x = [10, 2, 3]
     y = [4, 5, 6]
     z = [7, 8, 9]
