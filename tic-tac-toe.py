@@ -1,6 +1,3 @@
-#rowspan for making boxes be that big. 
-
-
 from Tkinter import * #gives us access to everything in the Tkinter class
 import tkMessageBox 
 from PIL import Image, ImageTk
@@ -64,15 +61,12 @@ def dcheck():
 
 def check():
     global count
+    hcheck()
+    vcheck()
+    dcheck()
+    count += 1
     if count == 9:
         tie()
-    else:
-        hcheck()
-        vcheck()
-        dcheck()
-        count =+1
-        if count == 9:
-            tie()
 
     
 def switch1(event):
@@ -291,18 +285,19 @@ def switch99(event):
     label0.config(text="right click turn")
     check()
 
-def openselabel1():
-    if All[0][0] == 0:
-         O = Image.open("O.png")
-         O = O.resize((100,100))
-         photo = ImageTk.PhotoImage(O)
-        
-         label1 = Label(image=photo)
-         label1.image = photo # keep a reference!
-         label1.grid(row=7, column =0 )
-         All[0][0] = player1
-         label0.config(text="right click turn")
-         check()
+def opense1blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label1 = Label(image=photo)
+    label1.image = photo # keep a reference
+    label1.grid(row=7, column =0 )
+    label1.bind("<Button-3>", switch1)
+    label1.bind("<Button-1>", switch11)
+    
+
+def opense1fire():
     if All[0][0] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -316,28 +311,41 @@ def openselabel1():
         check()
         
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
+        opense1blank()
     
-        label1 = Label(image=photo)
-        label1.image = photo # keep a reference
-        label1.grid(row=7, column =0 )
-        label1.bind("<Button-3>", switch1)
-        label1.bind("<Button-1>", switch11)
-
-def openselabel2():
-    if All[0][1] == 0:
+    
+    
+def opense1t():
+    if All[0][0] == 0:
          O = Image.open("O.png")
          O = O.resize((100,100))
          photo = ImageTk.PhotoImage(O)
         
-         label2 = Label(image=photo)
-         label2.image = photo # keep a reference!
-         label2.grid(row=30, column =0 )
-         All[0][1] = player1
+         label1 = Label(image=photo)
+         label1.image = photo # keep a reference!
+         label1.grid(row=7, column =0 )
+         All[0][0] = player1
          label0.config(text="right click turn")
          check()
+    else:
+        opense1fire()
+
+def openselabel1():
+    opense1t()
+
+def opense2blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label2 = Label(image=photo)
+    label2.image = photo # keep a reference
+    label2.grid(row=30, column =0 )
+    label2.bind("<Button-3>", switch2)
+    label2.bind("<Button-1>", switch22)
+    
+
+def opense2fire():
     if All[0][1] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -351,28 +359,41 @@ def openselabel2():
         check()
         
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
+        opense2blank()
     
-        label2 = Label(image=photo)
-        label2.image = photo # keep a reference
-        label2.grid(row=30, column =0 )
-        label2.bind("<Button-3>", switch2)
-        label2.bind("<Button-1>", switch22)
-        
-def openselabel3():
-    if All[0][2] == 0:
+    
+    
+def opense2t():
+    if All[0][1] == 0:
          O = Image.open("O.png")
          O = O.resize((100,100))
          photo = ImageTk.PhotoImage(O)
         
-         label3 = Label(image=photo)
-         label3.image = photo # keep a reference!
-         label3.grid(row=70, column =0 )
-         All[0][2] = player1
+         label2 = Label(image=photo)
+         label2.image = photo # keep a reference!
+         label2.grid(row=30, column =0 )
+         All[0][1] = player1
          label0.config(text="right click turn")
          check()
+    else:
+        opense2fire()
+
+def openselabel2():
+    opense2t()
+        
+def opense3blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+
+    label3 = Label(image=photo)
+    label3.image = photo # keep a reference
+    label3.grid(row=70, column =0 )
+    label3.bind("<Button-3>", switch3)
+    label3.bind("<Button-1>", switch33)
+    
+
+def opense3fire():
     if All[0][2] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -384,30 +405,42 @@ def openselabel3():
         All[0][2] = player2
         label0.config(text="left click turn")
         check()
-        
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
+        opense3blank()
     
-        label3 = Label(image=photo)
-        label3.image = photo # keep a reference
-        label3.grid(row=70, column =0 )
-        label3.bind("<Button-3>", switch3)
-        label3.bind("<Button-1>", switch33)
-   
-def openselabel4():
-    if All[1][0] == 0:
+    
+    
+def opense3t():
+    if All[0][2] == 0:
          O = Image.open("O.png")
          O = O.resize((100,100))
          photo = ImageTk.PhotoImage(O)
         
-         label4 = Label(image=photo)
-         label4.image = photo # keep a reference!
-         label4.grid(row=7, column =1 )
-         All[1][0] = player1
+         label3 = Label(image=photo)
+         label3.image = photo # keep a reference!
+         label3.grid(row=70, column =0 )
+         All[0][2] = player1
          label0.config(text="right click turn")
          check()
+    else:
+        opense3fire()
+
+def openselabel3():
+    opense3t()
+   
+def opense4blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label4 = Label(image=photo)
+    label4.image = photo # keep a reference
+    label4.grid(row=7, column =1 )
+    label4.bind("<Button-3>", switch4)
+    label4.bind("<Button-1>", switch44)
+    
+
+def opense4fire():
     if All[1][0] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -421,27 +454,41 @@ def openselabel4():
         check()
         
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
-        label4 = Label(image=photo)
-        label4.image = photo # keep a reference
-        label4.grid(row=7, column =1 )
-        label4.bind("<Button-3>", switch4)
-        label4.bind("<Button-1>", switch44)
-        
-def openselabel5():
-    if All[1][1] == 0:
+        opense4blank()
+    
+    
+    
+def opense4t():
+    if All[1][0] == 0:
          O = Image.open("O.png")
          O = O.resize((100,100))
          photo = ImageTk.PhotoImage(O)
         
-         label5 = Label(image=photo)
-         label5.image = photo # keep a reference!
-         label5.grid(row=30, column =1 )
-         All[1][1] = player1
+         label4 = Label(image=photo)
+         label4.image = photo # keep a reference!
+         label4.grid(row=7, column =1 )
+         All[1][0] = player1
          label0.config(text="right click turn")
          check()
+    else:
+        opense4fire()
+
+def openselabel4():
+    opense4t()
+
+def opense5blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label5 = Label(image=photo)
+    label5.image = photo # keep a reference
+    label5.grid(row=30, column =1 )
+    label5.bind("<Button-3>", switch5)
+    label5.bind("<Button-1>", switch55)
+    
+
+def opense5fire():
     if All[1][1] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -453,30 +500,42 @@ def openselabel5():
         All[1][1] = player2
         label0.config(text="left click turn")
         check()
-        
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
-        
-        label5 = Label(image=photo)
-        label5.image = photo # keep a reference
-        label5.grid(row=30, column =1 )
-        label5.bind("<Button-3>", switch5)
-        label5.bind("<Button-1>", switch55)
-        
-def openselabel6():
-    if All[1][2] == 0:
+        opense5blank()
+    
+    
+    
+def opense5t():
+    if All[1][1] == 0:
          O = Image.open("O.png")
          O = O.resize((100,100))
          photo = ImageTk.PhotoImage(O)
         
-         label6 = Label(image=photo)
-         label6.image = photo # keep a reference!
-         label6.grid(row=70, column =1 )
-         All[1][2] = player1
+         label5 = Label(image=photo)
+         label5.image = photo # keep a reference!
+         label5.grid(row=30, column =1 )
+         All[1][1] = player1
          label0.config(text="right click turn")
          check()
+    else:
+        opense5fire()  
+      
+def openselabel5():
+    opense5t()
+
+def opense6blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label6 = Label(image=photo)
+    label6.image = photo # keep a reference
+    label6.grid(row=70, column =1 )
+    label6.bind("<Button-3>", switch6)
+    label6.bind("<Button-1>", switch66)
+    
+
+def opense6fire():
     if All[1][2] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -488,30 +547,44 @@ def openselabel6():
         All[1][2] = player2
         label0.config(text="left click turn")
         check()
-        
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
+        opense6blank()
     
-        label6 = Label(image=photo)
-        label6.image = photo # keep a reference
-        label6.grid(row=70, column =1 )
-        label6.bind("<Button-3>", switch6)
-        label6.bind("<Button-1>", switch66)
-        
-def openselabel7():
-    if All[2][0] == 0:
+    
+    
+def opense6t():
+    if All[1][2] == 0:
          O = Image.open("O.png")
          O = O.resize((100,100))
          photo = ImageTk.PhotoImage(O)
         
-         label7 = Label(image=photo)
-         label7.image = photo # keep a reference!
-         label7.grid(row=7, column =2 )
-         All[2][0] = player1
+         label6 = Label(image=photo)
+         label6.image = photo # keep a reference!
+         label6.grid(row=70, column =1 )
+         All[1][2] = player1
          label0.config(text="right click turn")
          check()
+    else:
+        opense6fire()
+        
+        
+
+def openselabel6():
+    opense6t()   
+         
+def opense7blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label7 = Label(image=photo)
+    label7.image = photo # keep a reference
+    label7.grid(row=7, column =2 )
+    label7.bind("<Button-3>", switch7)
+    label7.bind("<Button-1>", switch77)
+    
+
+def opense7fire():
     if All[2][0] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -523,29 +596,42 @@ def openselabel7():
         All[2][0] = player2
         label0.config(text="left click turn")
         check()
-        
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
-        label7 = Label(image=photo)
-        label7.image = photo # keep a reference
-        label7.grid(row=7, column =2 )
-        label7.bind("<Button-3>", switch7)
-        label7.bind("<Button-1>", switch77)
-
-def openselabel8():
-    if All[2][1] == 0:
-         O = Image.open("O.png")
-         O = O.resize((100,100))
-         photo = ImageTk.PhotoImage(O)
+        opense7blank()
+    
+    
+    
+def opense7t():
+    if All[2][0] == 0:
+        O = Image.open("O.png")
+        O = O.resize((100,100))
+        photo = ImageTk.PhotoImage(O)
         
-         label8 = Label(image=photo)
-         label8.image = photo # keep a reference!
-         label8.grid(row=30, column =2 )
-         All[2][1] = player1
-         label0.config(text="right click turn")
-         check()
+        label7 = Label(image=photo)
+        label7.image = photo # keep a reference!
+        label7.grid(row=7, column =2 )
+        All[2][0] = player1
+        label0.config(text="right click turn")
+        check()
+    else:
+        opense7fire()
+       
+def openselabel7():
+    opense7t()
+
+def opense8blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label8 = Label(image=photo)
+    label8.image = photo # keep a reference
+    label8.grid(row=30, column =2 )
+    label8.bind("<Button-3>", switch8)
+    label8.bind("<Button-1>", switch88)
+    
+
+def opense8fire():
     if All[2][1] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -557,30 +643,42 @@ def openselabel8():
         All[2][1] = player2
         label8.config(text="left click turn")
         check()
-        
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
+        opense8blank()
     
-        label8 = Label(image=photo)
-        label8.image = photo # keep a reference
-        label8.grid(row=30, column =2 )
-        label8.bind("<Button-3>", switch8)
-        label8.bind("<Button-1>", switch88)
+    
+    
+def opense8t():
+    if All[2][1] == 0:
+         O = Image.open("O.png")
+         O = O.resize((100,100))
+         photo = ImageTk.PhotoImage(O)
         
-def openselabel9():
-    if All[2][2] == 0:
-        O = Image.open("O.png")
-        O = O.resize((100,100))
-        photo = ImageTk.PhotoImage(O)
-        
-        label9 = Label(image=photo)
-        label9.image = photo # keep a reference!
-        label9.grid(row=70, column =2 )
-        All[2][2] = player1
-        label0.config(text="right click turn")
-        check()
+         label8 = Label(image=photo)
+         label8.image = photo # keep a reference!
+         label8.grid(row=30, column =2 )
+         All[2][1] = player1
+         label0.config(text="right click turn")
+         check()
+    else:
+        opense8fire()
+
+def openselabel8():
+    opense8t()
+     
+def opense9blank():  
+    image = Image.open("blank.png")
+    image = image.resize((100,100))
+    photo = ImageTk.PhotoImage(image)
+    
+    label9 = Label(image=photo)
+    label9.image = photo # keep a reference
+    label9.grid(row=70, column =2 )
+    label9.bind("<Button-3>", switch9)
+    label9.bind("<Button-1>", switch99)
+    
+
+def opense9fire():
     if All[2][2] == 1:
         X = Image.open("X.png")
         X = X.resize((100,100))
@@ -592,17 +690,28 @@ def openselabel9():
         All[2][2] = player2
         label0.config(text="left click turn")
         check()
-        
     else:
-        image = Image.open("blank.png")
-        image = image.resize((100,100))
-        photo = ImageTk.PhotoImage(image)
+        opense9blank()
+    
+    
+    
+def opense9t():
+    if All[2][2] == 0:
+        O = Image.open("O.png")
+        O = O.resize((100,100))
+        photo = ImageTk.PhotoImage(O)
         
         label9 = Label(image=photo)
-        label9.image = photo # keep a reference
+        label9.image = photo # keep a reference!
         label9.grid(row=70, column =2 )
-        label9.bind("<Button-3>", switch9)
-        label9.bind("<Button-1>", switch99)
+        All[2][2] = player1
+        label0.config(text="right click turn")
+        check()
+    else:
+        opense9fire()        
+              
+def openselabel9():
+    opense9t()
    
           
 def opense():
@@ -653,72 +762,6 @@ def reset():
     All[1] = y
     All[2] = z
     opense()
-      
-def start():
-    root = Tk() #gives us a blank canvas object to work with
-    root.title = ("GUI Program")
-   
-    label0 = Label(root, text ="Left Click Go First", bg="pink", anchor=W)
-    label0.grid(row=0, column=0, sticky=EW, columnspan=3)
-    
-    image = Image.open("blank.png")
-    image = image.resize((100,100))
-    photo = ImageTk.PhotoImage(image)
-    
-    label1 = Label(image=photo)
-    label1.image = photo # keep a reference
-    label1.grid(row=70, column =0 )
-    label1.bind("<Button-3>", switch1)
-    label1.bind("<Button-1>", switch11)
-    
-    label2 = Label(image=photo)
-    label2.image = photo # keep a reference!
-    label2.grid(row=30, column =0 )
-    label2.bind("<Button-3>", switch2)
-    label2.bind("<Button-1>", switch22)
-
-    label3 = Label(image=photo)
-    label3.image = photo # keep a reference!
-    label3.grid(row=70, column =0 )
-    label3.bind("<Button-3>", switch3)
-    label3.bind("<Button-1>", switch33)
-
-    label4 = Label(image=photo)
-    label4.image = photo # keep a reference!
-    label4.grid(row=7, column =1 )
-    label4.bind("<Button-3>", switch4 )
-    label4.bind("<Button-1>", switch44)
-    
-    label5 = Label(image=photo)
-    label5.image = photo # keep a reference!
-    label5.grid(row=30, column =1 )
-    label5.bind("<Button-3>", switch5)
-    label5.bind("<Button-1>", switch55)
-
-    label6 = Label(image=photo)
-    label6.image = photo # keep a reference!
-    label6.grid(row=70, column =1 )
-    label6.bind("<Button-3>", switch6 )
-    label6.bind("<Button-1>", switch66)
-    
-    label7 = Label(image=photo)
-    label7.image = photo # keep a reference!
-    label7.grid(row=7, column =2 )
-    label7.bind("<Button-3>", switch7)
-    label7.bind("<Button-1>", switch77)
-    
-    label8 = Label(image=photo)
-    label8.image = photo # keep a reference!
-    label8.grid(row=30, column =2 )
-    label8.bind("<Button-3>", switch8 )
-    label8.bind("<Button-1>", switch88)
-    
-    label9 = Label(image=photo)
-    label9.image = photo # keep a reference!
-    label9.grid(row=70, column =2 )
-    label9.bind("<Button-3>", switch9)
-    label9.bind("<Button-1>", switch99)
-
 
 root = Tk() #gives us a blank canvas object to work with
 root.title = ("Tic Tac Toe")
@@ -806,7 +849,6 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 root.config(menu=menubar)
 
-start()
 
 mainloop() #causes the windows to display on the screen until program closes
 
